@@ -1,26 +1,21 @@
 package com.duckonmoon.storypiper.storypiper.payload;
 
+import lombok.Data;
+import org.springframework.security.core.GrantedAuthority;
+
+import java.util.Collection;
+
+@Data
 public class JwtAuthenticationResponse {
     private String accessToken;
     private String tokenType = "Bearer";
+    private String username;
+    private Collection<? extends GrantedAuthority> authorities;
 
-    public JwtAuthenticationResponse(String accessToken) {
+
+    public JwtAuthenticationResponse(String accessToken, String username, Collection<? extends GrantedAuthority> authorities) {
         this.accessToken = accessToken;
-    }
-
-    public String getAccessToken() {
-        return accessToken;
-    }
-
-    public void setAccessToken(String accessToken) {
-        this.accessToken = accessToken;
-    }
-
-    public String getTokenType() {
-        return tokenType;
-    }
-
-    public void setTokenType(String tokenType) {
-        this.tokenType = tokenType;
+        this.username = username;
+        this.authorities = authorities;
     }
 }

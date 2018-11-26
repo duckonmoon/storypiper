@@ -1,0 +1,6 @@
+<div *ngIf="!test; else wow">
+  Test isn't supported
+</div>
+<ng-template #wow>
+  {{test.here}}
+</ng-template>

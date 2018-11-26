@@ -10,6 +10,7 @@ import com.duckonmoon.storypiper.storypiper.payload.SignUpRequest;
 import com.duckonmoon.storypiper.storypiper.repository.RoleRepository;
 import com.duckonmoon.storypiper.storypiper.repository.UserRepository;
 import com.duckonmoon.storypiper.storypiper.security.JwtTokenProvider;
+import com.duckonmoon.storypiper.storypiper.security.UserPrincipal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -59,11 +60,13 @@ public class AuthController {
                 )
         );
 
+        UserPrincipal user = (UserPrincipal) authentication.getPrincipal();
+
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
         String jwt = tokenProvider.generateToken(authentication);
 
-        return ResponseEntity.ok(new JwtAuthenticationResponse(jwt));
+        return ResponseEntity.ok(new JwtAuthenticationResponse(jwt, user.getUsername(), authentication.getAuthorities()));
     }
 
     @PostMapping("/signup")

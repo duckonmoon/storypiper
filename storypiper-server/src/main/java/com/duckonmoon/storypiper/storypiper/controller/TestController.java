@@ -13,7 +13,7 @@ import java.util.HashMap;
 @RequestMapping("api/user")
 public class TestController {
     @GetMapping("/hey")
-    @PreAuthorize("hasRole('ROLE_USER')")
+    //@PreAuthorize("hasRole('ROLE_USER')")
     public HashMap<String,String> wow(@CurrentUser UserPrincipal currentUser){
         HashMap<String,String> map = new HashMap<String,String>();
         map.put("here","wow");
