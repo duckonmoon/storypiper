@@ -18,7 +18,10 @@
       <a routerLink="/register" role="button" class="btn btn-outline-info my-2 my-sm-0">Registration</a>
     </form>
     <form *ngIf="isActive" class="form-inline my-2 my-lg-0" style="margin-left: 10px">
-      <h5 class="nav-link" style="color:azure; padding-bottom: 0px">Hello, {{userName}}</h5>
+      <h5 class="nav-link" style="color:azure; padding-bottom: 0px" routerLink="/profile">Hello, {{userName}}</h5>
+    </form>
+    <form *ngIf="isActive" class="form-inline my-2 my-lg-0">
+      <img src="/assets/person.png" width="20" height="30" alt="" routerLink="/profile">
     </form>
     <form *ngIf="isActive" class="form-inline my-2 my-lg-0" style="margin-left: 10px">
       <button 

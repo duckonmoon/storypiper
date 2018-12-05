@@ -8,6 +8,6 @@ export class StoryService {
     }
 
     getStories(): Observable<any> {
-        return this.http.get('api/user/hey');
+        return this.http.get('api/story/all');
     }
 }

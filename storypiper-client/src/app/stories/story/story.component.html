@@ -1,3 +1,16 @@
-<p>
-  story works!
-</p>
+<div class="card" style="margin: 10px 10px 10px 10px; width: 18rem; background-color: #37474F; color: white">
+  <div class="card-body">
+    <h5 class="card-title">{{shortStory.title}}</h5>
+    <p class="card-text">{{shortStory.intro}}</p>
+    <div style="height: 30px;">
+      <div style="display: inline-block;">
+        <img src="/assets/like.png" class="vote" (click)="onLikeClick()" />
+        <span>{{shortStory.likes}}</span>
+      </div>
+      <div style="display: inline-block; position: absolute;  right: 0; margin-right: 20px;">
+          <img src="/assets/dislike.png" class="vote" (click)="onDislikeClick()"/>
+          <span>{{shortStory.dislikes}}</span>
+        </div>
+    </div>
+  </div>
+</div>

@@ -13,6 +13,7 @@ export class RegisterComponent implements OnInit {
   private nickname = '';
   private password = '';
   private confirmPassword = '';
+  private name = '';
   private hasError: boolean;
   private hasSuccess: boolean;
 
@@ -29,8 +30,8 @@ export class RegisterComponent implements OnInit {
       return;
     }
 
-    console.log(this.email + ' ' + this.password + ' ' + this.nickname + ' ' + this.confirmPassword);
-    this.service.register(this.email, this.nickname, this.password, this.confirmPassword).subscribe(
+    console.log(this.email + ' ' + this.password + ' ' + this.nickname + ' ' + this.confirmPassword + ' ' + this.name);
+    this.service.register(this.email, this.name, this.nickname, this.password).subscribe(
       (data) => {
         this.hasError = false;
         this.hasSuccess = true;
@@ -40,7 +41,12 @@ export class RegisterComponent implements OnInit {
   }
 
   validate(): boolean {
-    if (!this.validateEmail() || this.nickname === '' || !(this.confirmPassword === this.password) || this.password.length < 6) {
+    if (!this.validateEmail()
+      || this.nickname === ''
+      || !(this.confirmPassword === this.password)
+      || this.password.length < 6
+      || this.name === ''
+    ) {
       this.hasError = true;
       this.hasSuccess = false;
       return false;

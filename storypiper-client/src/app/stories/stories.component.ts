@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Test } from '../model/test';
+import StoryContainer from '../model/stories.container';
 import { StoryService } from './stories.service';
 
 @Component({
@@ -9,12 +9,12 @@ import { StoryService } from './stories.service';
 })
 export class StoriesComponent implements OnInit {
 
-  test: Test;
+  storyContainer: StoryContainer;
 
   constructor(private service: StoryService) { }
 
   ngOnInit() {
-    this.service.getStories().subscribe((test) => this.test = test);
+    this.service.getStories().subscribe((storyContainer) => this.storyContainer = storyContainer);
   }
 
 }

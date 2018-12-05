@@ -3,10 +3,7 @@ package com.duckonmoon.storypiper.storypiper.model;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 import java.util.List;
 
 @EqualsAndHashCode(callSuper = true)
@@ -14,6 +11,9 @@ import java.util.List;
 @Data
 public class Story extends AbstractUpdatable {
     private String title;
+    @Column(columnDefinition = "TEXT")
+    private String intro;
+    @Column(columnDefinition = "TEXT")
     private String text;
     private Status status;
     @OneToOne(fetch = FetchType.LAZY)

@@ -1,6 +1,3 @@
-<div *ngIf="!test; else wow">
-  Test isn't supported
+<div *ngIf="storyContainer">
+  <app-story [shortStory]=story *ngFor="let story of storyContainer.stories"></app-story>
 </div>
-<ng-template #wow>
-  {{test.here}}
-</ng-template>

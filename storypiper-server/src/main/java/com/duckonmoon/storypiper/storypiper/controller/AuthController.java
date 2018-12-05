@@ -3,10 +3,7 @@ package com.duckonmoon.storypiper.storypiper.controller;
 import com.duckonmoon.storypiper.storypiper.model.Role;
 import com.duckonmoon.storypiper.storypiper.model.RoleName;
 import com.duckonmoon.storypiper.storypiper.model.User;
-import com.duckonmoon.storypiper.storypiper.payload.ApiResponse;
-import com.duckonmoon.storypiper.storypiper.payload.JwtAuthenticationResponse;
-import com.duckonmoon.storypiper.storypiper.payload.LoginRequest;
-import com.duckonmoon.storypiper.storypiper.payload.SignUpRequest;
+import com.duckonmoon.storypiper.storypiper.payload.*;
 import com.duckonmoon.storypiper.storypiper.repository.RoleRepository;
 import com.duckonmoon.storypiper.storypiper.repository.UserRepository;
 import com.duckonmoon.storypiper.storypiper.security.JwtTokenProvider;
@@ -94,7 +91,7 @@ public class AuthController {
 
         User result = userRepository.save(user);
 
-        return ResponseEntity.ok(result.getId());
+        return ResponseEntity.ok(new SuccessObjectCreatedResponse(result.getId(), "user"));
     }
 }
 

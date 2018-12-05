@@ -3,6 +3,7 @@ package com.duckonmoon.storypiper.storypiper.model;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
@@ -13,6 +14,9 @@ import java.util.Date;
 @Data
 public class StoryVersion extends BaseModel {
     private String title;
+    @Column(columnDefinition = "TEXT")
+    private String intro;
+    @Column(columnDefinition = "TEXT")
     private String text;
     private Status status;
     private Date createdAt;

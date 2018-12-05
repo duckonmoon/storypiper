@@ -9,17 +9,17 @@ export class RegistrationService {
     }
 
 
-    public register(email, nickname, password, confirmPassword): Observable<any> {
+    public register(email, name, nickname, password): Observable<any> {
         const data = JSON.stringify({
-            'Email': email,
-            'Nickname': nickname,
-            'Password': password,
-            'ConfirmPassword': confirmPassword
+            'email': email,
+            'name': name,
+            'username': nickname,
+            'password': password
         });
 
         let headers: HttpHeaders = new HttpHeaders();
         headers = headers.append( 'Content-Type', 'application/json' );
 
-        return this.http.post('/api/Account/Register', data, {headers});
+        return this.http.post('/api/auth/signup', data, {headers});
     }
 }
