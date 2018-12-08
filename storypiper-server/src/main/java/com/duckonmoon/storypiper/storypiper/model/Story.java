@@ -5,6 +5,7 @@ import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 @EqualsAndHashCode(callSuper = true)
 @Entity
@@ -24,4 +25,6 @@ public class Story extends AbstractUpdatable {
     private List<StoryVote> votes;
     @OneToMany(fetch = FetchType.LAZY,mappedBy = "story")
     private List<StoryVersion> storyVersions;
+    @ManyToMany(mappedBy = "permittedGroups")
+    private Set<User> users;
 }

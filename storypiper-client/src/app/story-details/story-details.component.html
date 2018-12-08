@@ -1,0 +1,42 @@
+<p *ngIf="!story; else storyy">
+  Smth went wrong!
+</p>
+<ng-template #storyy>
+  <div style="text-align: center; width: 85%; display: inline-block">
+    <div style="margin: 10px 10px 30px 10px" class="form-group">
+      <label for="title">Story Title:</label>
+      <input *ngIf="!isEdit" readonly="readonly" [(ngModel)]="story.title" type="text"
+             class="form-control" id="title"/>
+      <input *ngIf="isEdit" [(ngModel)]="story.title" type="text"
+             class="form-control"/>
+      <label for="comment">Intro:</label>
+      <textarea *ngIf="!isEdit" readonly="readonly" [(ngModel)]="story.intro"
+                style="resize: none;" class="form-control" rows="5"
+                id="comment"></textarea>
+      <textarea *ngIf="isEdit" readonly="readonly" [(ngModel)]="story.intro"
+                style="resize: none;" class="form-control" rows="5"></textarea>
+
+      <label for="description">Description:</label>
+      <textarea *ngIf="!isEdit" readonly="readonly" [(ngModel)]="story.text"
+                class="form-control" rows="20" id="description"></textarea>
+      <textarea *ngIf="isEdit"  [(ngModel)]="story.text"
+                class="form-control" rows="20"></textarea>
+    </div>
+  </div>
+  <div
+    style="margin-right: 5px; text-align: center; height: 100%; width: 10%; display: inline-block">
+    <button *ngIf="!isEdit" type="button" style="margin-bottom: 100px;" class="btn btn-success"  (click)="edit()">Edit</button>
+    <div *ngIf="isEdit" style="margin-bottom: 100px;">
+      <button type="button" class="btn btn-success" style="margin-bottom: 10px;">Save</button>
+      <button type="button" class="btn btn-danger" (click)="cancel()">Cancel</button>
+    </div>
+    <div style="height: 200px; width: 100%;">
+      <p>Creators:</p>
+      <p *ngFor="let user of story.users">± {{user}}</p>
+    </div>
+    <div>
+
+    </div>
+  </div>
+
+</ng-template>

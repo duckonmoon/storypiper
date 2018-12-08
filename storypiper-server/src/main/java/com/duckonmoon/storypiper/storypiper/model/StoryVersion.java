@@ -21,5 +21,7 @@ public class StoryVersion extends BaseModel {
     private Status status;
     private Date createdAt;
     @ManyToOne(fetch = FetchType.LAZY)
+    private User createdBy;
+    @ManyToOne(fetch = FetchType.LAZY)
     private Story story;
 }

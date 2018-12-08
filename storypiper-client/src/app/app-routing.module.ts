@@ -7,6 +7,8 @@ import { CanActivate } from '@angular/router/src/utils/preactivation';
 import { LoginGuard } from './__guards/login.guard';
 import { ProfileComponent } from './profile/profile.component';
 import { AuthGuard } from './__guards/auth.guard';
+import { WriteStoryComponent } from './write-story/write-story.component';
+import { StoryDetailsComponent } from './story-details/story-details.component';
 
 const routes: Routes = [
   {
@@ -32,6 +34,15 @@ const routes: Routes = [
     path: 'profile',
     component: ProfileComponent,
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'writeStory',
+    component: WriteStoryComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'story/:storyId',
+    component: StoryDetailsComponent
   }
 ];
 

@@ -1,0 +1,18 @@
+<div style="text-align: center; margin: 20px">
+  <div *ngIf="success" class="alert alert-success" role="alert">
+    Question Created! You can see you question <a [routerLink]="['/theme', themeId]">here</a>
+  </div>
+  <div *ngIf="fail" class="alert alert-danger" role="alert">
+    Smth went Wrong
+  </div>
+</div>
+<div style="margin: 0 30px 30px 30px" class="form-group">
+  <label for="title">Story Title:</label>
+  <input [(ngModel)]="title" type="text" class="form-control" rows="5" id="title" />
+  <label for="comment">Intro:</label>
+  <textarea [(ngModel)]="intro" style="resize: none;" class="form-control" rows="5" id="comment"></textarea>
+
+  <label for="description">Description:</label>
+  <textarea [(ngModel)]="description" class="form-control" rows="20" id="description"></textarea>
+  <button *ngIf="!success" (click)="submit()" class="btn btn-info" style="margin: 5px; float:right">Submit</button>
+</div>

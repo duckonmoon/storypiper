@@ -47,6 +47,9 @@ public class User extends BaseModel {
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
 
+    @ManyToMany
+    private Set<Story> permittedGroups;
+
     public User() {
 
     }

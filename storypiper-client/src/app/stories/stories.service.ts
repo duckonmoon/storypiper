@@ -10,4 +10,8 @@ export class StoryService {
     getStories(): Observable<any> {
         return this.http.get('api/story/all');
     }
+
+    getStory(id: number): Observable<any> {
+        return this.http.get(`api/story/${id}`);
+    }
 }

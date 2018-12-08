@@ -20,6 +20,9 @@ import { LoginGuard } from './__guards/login.guard';
 import { StoryService } from './stories/stories.service';
 import { VoteService } from './services/vote.service';
 import { ProfileComponent } from './profile/profile.component';
+import { WriteStoryComponent } from './write-story/write-story.component';
+import { WriteStoryService } from './write-story/write-story.service';
+import { StoryDetailsComponent } from './story-details/story-details.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,9 @@ import { ProfileComponent } from './profile/profile.component';
     StoryComponent,
     LoginComponent,
     RegisterComponent,
-    ProfileComponent
+    ProfileComponent,
+    WriteStoryComponent,
+    StoryDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -45,6 +50,7 @@ import { ProfileComponent } from './profile/profile.component';
     LoginService,
     StoryService,
     VoteService,
+    WriteStoryService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
   ],
